@@ -1,4 +1,19 @@
 {% extends "base.html" %}
 {% block title %} logIn {% endblock %}
-{% block content %} <h1> this is the login page </h1>
+{% block content %}
+<br>
+<form method = "POST">
+    <h3 align = "center">Login</h3>
+    <div class = "form-group">
+        <label for = "email">Email Address</label>
+        <input type = "email" class = "form-control" id="email" name="email" placeholder = "enter email" />
+        <label for = "password1"> Password</label>
+        <input type = "password" class = "form-control" id="password1" name="password1" placeholder = "enter password" />
+        <br>
+        <button type = "submit" class = "btn btn-primary"> Login </button>
+    </div>
+</form>
 {% endblock %}
+
+
+<!-- pagina di login generata da base, ricorda di mettere GET and POST per HTTP requests in authpy --->

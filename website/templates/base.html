@@ -33,6 +33,34 @@
             </div>
         </nav>
 
+        <!--- FLASH MESSAGES ---->
+        <!--- cosa faccio qui? leggo i flashed messaggi, e setto uno stile per ciascuno-->
+        {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+            {% if category == 'error' %}
+            <div class = "alert alert-danger alert-dismissable fade show" role="alert">
+                {{ message }}
+                <button type = "button" class = "close" data-dismiss = "alert">
+                    <!--- span, inserisco icona.... &times; sarebbe la x per chiudere una finestra --->
+                    <span aria-hidden = "true">&times;</span>
+                </button>
+            </div>
+            {% else %}
+            <div class = "alert alert-success alert-dismissable fade show" role="alert">
+                {{ message }}
+                <button type = "button" class = "close" data-dismiss = "alert">
+                    <!--- span, inserisco icona.... &times; sarebbe la x per chiudere una finestra --->
+                    <span aria-hidden = "true">&times;</span>
+                </button>
+            </div>
+            {% endif %}
+            {% endfor %}
+        {% endif %}
+        {% endwith %}
+        <!--- abbiamo definito i flash messages qui dentro per poter poi riutilizzarli in tutte le pagine-->
+
+
         <div class = "container">
             {% block content %}
             {% endblock %}
