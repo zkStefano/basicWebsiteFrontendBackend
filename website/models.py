@@ -8,7 +8,7 @@ class Note(db.Model):
     #data --> corpo della nota
     data = db.Column(db.String(10000))
     #date(data temporale viene automaticamente settata con una funzione che prende la data attuale
-    date = db.Column(db.DateTime(timezone=True), default=func.now)
+    date = db.Column(db.DateTime(timezone=True), default=func.now())
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
     #la foreign key su user_id collega la tabella Note a User.
 

@@ -25,7 +25,7 @@
             </button>
             <div class = "collapse navbar-collapse" id = "navbar">
                 <div class = "navbar-nav">
-                    { if user.is_authenticated %}
+                    {% if user.is_authenticated %}
                     <a class = "nav-item nav-link" id  = "home" href = "/"> Home</a>
                     <a class = "nav-item nav-link" id  = "logout" href = "/logout"> Log Out </a>
                     {% else %}

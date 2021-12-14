@@ -21,7 +21,7 @@ def login():
                 flash('Logged in successfully!', category='success')
                 #il login effettivo si fa qui usando flask_login
                 login_user(user, remember=True)
-                redirect(url_for('views.home'))
+                return redirect(url_for('views.home')) #non dimenticarti return sennò non ti fa la redirect
             else:
                 flash('Incorrect password!', category='error')
         else:
@@ -66,7 +66,7 @@ def sign_up():
             db.session.add(new_user)
             db.session.commit()
             flash('Account created!', category='success')
-            login_user(user)
-            return redirect(url_for('views.home',user=current_user))
+            login_user(user, remember=True)
+            return redirect(url_for('views.home'))
 
-    return render_template("sign_up.html")
+    return render_template("sign_up.html", user=current_user)
